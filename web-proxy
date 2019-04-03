@@ -1,0 +1,26 @@
+webproxy
+port:3128
+cache:ismayana@tkj-smk1cimahi.lab
+max cache object:1024
+cache on disk:ceklis
+always from cache:ceklis
+
+*blok web*
+dst.host:link 
+action:deny
++redirect-to:link
+
+*blok ekstensi*
+path:*.mp3
+action:deny
+
+*blok kata*
+dst.host:*mikrotik*
+action:deny
+
+*nat rule*
+chain:dstnat
+protocol:6tcp
+in.int:int-to-client
+action:redirect
+to-port:3128
