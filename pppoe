@@ -1,0 +1,10 @@
+PPPOE
+
+SERVER :
+/ip pool add name="pppoe-pool" ranges=10.1.1.62-10.1.1.7
+/ppp profile add name="pppoe-profile" local-address=10.1.1.1 remote-address=pppoe-pool
+/ppp secret add name=user password=passwd service=pppoe profile=pppoe-profile
+/interface pppoe-server server add service-name=internet interface=wlan1 default-profile=pppoe-profile disabled=no
+
+CLIENT :
+/interface pppoe-client add name=pppoe-user-mike user=user password=passwd interface=wlan1 service-name=internet disabled=no
