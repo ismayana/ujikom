@@ -1,0 +1,10 @@
+apt install postix dovecot-core dovecot-imapd dovecot-pop3d
+dpkg-reconfigure postfix
+nano /etc/postfix/main.cf
+service postfix restart
+nano /etc/dovecot/conf.d/10-mail.conf
+nano /etc/dovecot/conf.d/10-auth.conf
+nano /etc/dovecot/conf.d/10-master.conf
+nano /etc/dovecot/dovecot.conf
+service dovecot restart
+adduser
