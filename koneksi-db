@@ -1,0 +1,23 @@
+<?php
+
+$user_name = "root";
+$password = "jaringan";
+$database = "ujikomTKJ2019";
+$hostname = "localhost";
+$connect_db=mysqli_connect($hostname, $user_name, $password);
+if ($connect_db){
+echo "<center>Koneksi ke database berhasil<br>";
+}
+
+else {
+echo "<center>Koneksi ke database gagal<br>";
+}
+
+$find_db=mysqli_select_db($connect_db, $database);
+if ($find_db){
+echo "<center>Database ada<br>";
+}
+else {
+echo "<center>Database tidak ada<br>";
+}
+?>
